@@ -121,7 +121,7 @@ def plot_discrete(df, feature, target, orientation='v', figsize=(14, 4)):
     ax[1].set_title(f"Mean target by category in {feature}")
     plt.tight_layout() # To ensure subplots don't overlay
 
-def plot_continuous(df, feature, target, bins=30, figsize=(14, 5)):
+def plot_continuous(df, feature, target, bins=30, figsize=(14, 4)):
     """Plot histogram, density plot, box plot and swarm plot for feature colour
     coded by target.
     Parameters
@@ -138,18 +138,13 @@ def plot_continuous(df, feature, target, bins=30, figsize=(14, 5)):
     Bottom right subplot shows swarm plot. Each contains overlaying graphs for
     each class in target.
     """
-    fig, ax = plt.subplots(2, 2, figsize=(14,8))
-
-    sns.histplot(data=df, x=feature, hue=target, bins=bins, ax=ax[0,0])
-    ax[0,0].set_title(f'Histogram of {feature} by {target}')
+    fig, ax = plt.subplots(1, 2, figsize=figsize)
 
     sns.kdeplot(data=df, x=feature, hue=target, shade=True, common_norm=False,
-                ax=ax[0,1])
-    ax[0,1].set_title(f'Density plot of {feature} by {target}')
+                ax=ax[0])
+    ax[0].set_title(f'Density plot of {feature} by {target}')
 
-    sns.boxplot(data=df, y=feature, x=target, ax=ax[1,0])
-    ax[1,0].set_title(f'Box plot of {feature} by {target}')
+    sns.boxplot(data=df, y=feature, x=target, ax=ax[1])
+    ax[1].set_title(f'Box plot of {feature} by {target}')
 
-    sns.swarmplot(data=df.dropna(), y=feature, x=target, ax=ax[1,1])
-    ax[1,1].set_title(f'Swarm plot of {feature} by {target}')
     plt.tight_layout() # To ensure subplots don't overlay
