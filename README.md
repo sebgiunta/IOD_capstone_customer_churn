@@ -41,4 +41,4 @@ Hyperparameter tuning increased the CatBoost F1 score to 0.9274
 ## Feature Importance
 Below shows the importance of each feature
 
-![alt text](https://github.com/sebgiunta/iod_capstone_customer_churn/blob/main/images/target.png "Feature Importance")
+![alt text](https://github.com/sebgiunta/iod_capstone_customer_churn/blob/main/images/feature_importance.png "Feature Importance")
